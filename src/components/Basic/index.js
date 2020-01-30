@@ -1,8 +1,7 @@
 import React from "react";
 import { useDropzone } from "react-dropzone";
-import styles from "./styles.module.scss";
 
-function Basic(props) {
+function Basic() {
   const { acceptedFiles, getRootProps, getInputProps } = useDropzone();
 
   const files = acceptedFiles.map(file => (
@@ -24,13 +23,4 @@ function Basic(props) {
     </section>
   );
 }
-
-function App() {
-  return (
-    <div className={styles.wrapper}>
-      <Basic />
-    </div>
-  );
-}
-
-export default App;
+export default Basic;
