@@ -1,11 +1,11 @@
 import React from "react";
-import Basic from "components/Basic";
+import Previews from "components/Previews";
 import styles from "./styles.module.scss";
 
 function App() {
   return (
     <div className={styles.wrapper}>
-      <Basic />
+      <Previews />
     </div>
   );
 }
