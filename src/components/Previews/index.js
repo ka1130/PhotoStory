@@ -2,38 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import styles from "./styles.module.scss";
 
-const thumbsContainer = {
-  display: "flex",
-  flexDirection: "row",
-  flexWrap: "wrap",
-  marginTop: 16
-};
-
-const thumb = {
-  display: "inline-flex",
-  borderRadius: 2,
-  border: "1px solid #eaeaea",
-  marginBottom: 8,
-  marginRight: 8,
-  width: 100,
-  height: 100,
-  padding: 4,
-  boxSizing: "border-box"
-};
-
-const thumbInner = {
-  display: "flex",
-  minWidth: 0,
-  overflow: "hidden"
-};
-
-const img = {
-  display: "block",
-  width: "auto",
-  height: "100%"
-};
-
-function Previews(props) {
+const Previews = props => {
   const [files, setFiles] = useState([]);
   const { getRootProps, getInputProps } = useDropzone({
     accept: "image/*",
@@ -49,11 +18,11 @@ function Previews(props) {
   });
 
   const thumbs = files.map(file => (
-    <div style={thumb} key={file.name}>
-      <div style={thumbInner}>
-        <img src={file.preview} style={img} alt={file.name} />
-      </div>
-    </div>
+    <img
+      src={file.preview}
+      className="ui medium rounded image"
+      alt={file.name}
+    />
   ));
 
   useEffect(
@@ -70,9 +39,9 @@ function Previews(props) {
         <input {...getInputProps()} />
         <p>Drag 'n' drop some files here, or click to select files</p>
       </div>
-      <aside style={thumbsContainer}>{thumbs}</aside>
+      <aside className="ui medium images">{thumbs}</aside>
     </section>
   );
-}
+};
 
 export default Previews;
